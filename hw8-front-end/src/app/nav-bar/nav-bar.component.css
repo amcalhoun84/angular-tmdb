@@ -1,0 +1,45 @@
+
+.bg-darker {
+    color: whitesmoke;
+    background-color: black;
+}
+
+.nav-item {
+    color: white;
+}
+
+.navbar-brand  {
+    color: white !important;
+}
+
+.navbar-brand:hover {
+    color: lightslategray;
+}
+
+.reader {
+    color: white !important;
+}
+
+.underline-search {
+    border-radius: 0;
+    outline: 0;
+    color: white !important;
+    border-bottom: 2px solid white !important;
+}
+
+.underline-search:focus {
+    border-radius: 0;
+    outline: 0;
+    color: white !important;
+    border-bottom: 2px solid white !important;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    float: right;
+}
+
+.navbar-toggler:focus {
+    border :goldenrod 2px solid;
+}

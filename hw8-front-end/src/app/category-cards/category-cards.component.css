@@ -1,0 +1,290 @@
+h3 {
+    color: white;
+}
+
+.carousel-inner {
+    width: 50%;
+}
+
+
+/* .zoomies {
+    margin: auto;
+    transform: scale(0.9);
+}
+
+.zoomies:hover {
+    transform: scale(1.05);
+    transition: ease-in-out 1s;
+    height: 15%;
+
+} */
+
+.cat-cards { 
+    max-width: 200px;
+}
+
+.group-container {
+    display: inline-block; 
+    margin-bottom: 7.5%; 
+    margin-left: 4.5%;
+}
+
+.carousel-bumper {
+    margin-left: 8%;
+}
+
+.carousel-caption {
+    position: relative;
+    top: 306px;
+    left: 0px;
+    bottom: 0;
+    height: 35%;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+    visibility: hidden;
+    max-width: 200px;
+    min-width: 100px;
+}
+
+.group-container:hover > .carousel-caption {
+    visibility: visible;
+    transform: scale(1.05);
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/** UHD++ -- HIGHLY EXPERIMENTAL XD */
+@media screen and (max-width: 3840px) {
+
+    .carousel-inner {
+        width: 30%;
+    }
+    
+
+    .cat-cards { 
+        max-width: 200px;
+    }
+    
+}
+
+/** UHD+ **/
+@media screen and (max-width: 2560px) {
+    
+    .cat-cards { 
+        max-width: 175px;
+    }
+
+    
+    .carousel-bumper {
+        margin-left: 9%;
+    }
+
+    .group-container {
+        display: inline-block; 
+        margin-bottom: 5.5%; 
+        margin-left: 2.75%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 268px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: hidden;
+        max-width: 175px;
+        width: 175px !important;
+        
+    }
+
+}
+
+/** Standard HD **/
+@media screen and (max-width: 1650px) {
+    
+    .cat-cards { 
+        max-width: 150px;
+    }
+
+    .group-container {
+        display: inline-block; 
+        margin-bottom: 5.5%; 
+        margin-left: 3.75%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 229px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: hidden;
+        max-width: 150px;
+        width: 150px !important;
+        
+    }
+
+
+}
+
+/** Standard HD **/
+@media screen and (max-width: 1500px) {
+    
+    .cat-cards { 
+        max-width: 125px;
+    }
+
+    .group-container {
+        display: inline-block; 
+        margin-bottom: 5.5%; 
+        margin-left: 3.5%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 190px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: hidden;
+        max-width: 125px;
+        width: 125px !important;
+    }
+
+        
+    .carousel-bumper {
+        margin-left: 12%;       
+    }
+
+
+}
+
+/** Standard HD **/
+@media screen and (max-width: 1300px) {
+    
+    .cat-cards { 
+        max-width: 110px;
+    }
+
+    .group-container {
+        display: inline-block; 
+        margin-bottom: 5.5%; 
+        margin-left: 3.5%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 168px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: hidden;
+        max-width: 110px;
+        width: 110px !important;        
+    }
+
+    .carousel-bumper {
+        margin-left: 12%;
+    }
+
+
+}
+
+@media screen and (max-width: 1190px) {
+
+    .cat-cards { 
+        max-width: 100px;
+    }
+
+    .group-container {
+        display: inline-block; 
+        margin-bottom: 2.5; 
+        margin-left: 3.5%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 152px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: hidden;
+        max-width: 100px;
+        min-width: 100px;
+    }
+
+  
+
+    .carousel-indicators {
+        visibility: hidden impo !important;
+        display: none !important;
+    }
+
+
+}
+
+/** Getting more into mobile now */
+@media screen and (max-width: 992px) {
+
+    .cat-cards { 
+        max-width: 300px;
+    }
+
+    .group-container {
+        display: block; 
+        margin-bottom: 0%; 
+        margin-left: 24%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 460px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: visible;
+        max-width: 300px;
+        min-width: 300px;
+    }
+
+}
+
+/** Micro mobile */
+@media screen and (max-width: 600px) {
+
+    ngb-carousel > .carousel-indicators {
+        visibility: hidden !important;
+    }
+
+    .cat-cards { 
+        max-width: 280px;
+    }
+
+    .group-container {
+        display: block; 
+        margin-bottom: 0%; 
+        margin-left: 24%;
+    }
+
+    .carousel-caption {
+        position: relative;
+        top: 430px;
+        left: 0px;
+        bottom: 0;
+        height: 35%;
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+        visibility: visible;
+        max-width: 280px;
+        min-width: 280px;
+    }
+
+
+
+}

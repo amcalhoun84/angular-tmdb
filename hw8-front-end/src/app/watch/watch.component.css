@@ -1,0 +1,61 @@
+::-webkit-scrollbar { 
+    height: 15px;
+    width: 5px;
+    border: 1px solid #d5d5d5;
+    background-color: #333;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #666;
+    width: 30px;
+  }
+
+.overview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-lines: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-special {
+    color: white;
+    background-color: black;
+    border-radius: 25px;
+    margin-left: 2%;
+    padding: 0 10px;
+
+}
+
+.cart-subtitle {
+    color: #666;
+    font-size: 10px;
+}
+
+
+.cast-set {
+    max-width: 1200px; 
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.cast-card {
+    width:16rem; 
+    display: inline-flex; 
+    margin: 10px 10px
+}
+
+.card-body {
+    text-align: center;
+    background-color: white;
+}
+
+/* REVIEW */
+
+.review-card {
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    color:black;
+}

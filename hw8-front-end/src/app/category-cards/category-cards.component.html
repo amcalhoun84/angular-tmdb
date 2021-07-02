@@ -1,0 +1,28 @@
+
+<div *ngIf="hasResults" class="container-fluid p-3 my-3 text-white">
+    <h3 class="offset-1">{{category_title}}</h3>
+    <ngb-carousel *ngIf="!mobile" [interval]="5000" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let group of multimg">
+            <div class="carousel-bumper">
+            <div *ngFor="let obj of group" class="group-container">
+                <div class="carousel-caption">{{obj.title}}</div>
+                        <a [routerLink]="['/watch', obj.media, obj.id]" routerLinkActive="active">
+                        <img class="cat-cards" [src]="obj.image" alt="{{obj.title}}">
+                        </a>
+                    </div>
+                
+                </div>
+        </ng-template>
+    </ngb-carousel>
+
+    <ngb-carousel *ngIf="mobile" [interval]="5000" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+            <ng-template ngbSlide *ngFor="let obj of results" >
+                    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6" class="group-container">
+                        <div class="carousel-caption"><p>{{obj.title}}</p></div>
+                        <a [routerLink]="['/watch', obj.media,obj.id]" routerLinkActive="active">
+                            <img class="cat-cards" [src]="obj.image" alt="{{obj.title}}" width="380px">
+                        </a>
+                    </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>

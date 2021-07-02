@@ -1,0 +1,133 @@
+<!-- YOUTUBE CONTAINER-->
+
+<div class="container-fluid" style="color: white;">
+    <div class="offset-1 row">
+    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-9 col-xl-8" *ngIf="results">
+        <youtube-player
+            videoId="{{results.key}}"
+            suggestedQuality="highres"
+        >
+        </youtube-player>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="col-sm-2 col-xs-6 col-md-2 col-lg-3 col-xl-4" *ngIf="details">
+        <h1>{{details.title}}</h1>
+        <h5>{{details.tagline}}</h5>
+        <h3>{{details.release_date}} | &#9733; {{details.vote_average}} | {{details.runtime}}</h3>
+            <p>Genre: {{details.genres}}</p>
+                <button class="btn btn-primary" (click)="addRemoveMovie(details.id)">{{movieWatchlist}}</button>
+                <ngb-alert style="margin-top: 5%; width: 50%;" #selfClosing *ngIf="alertShow" [type]="alertType" (closed)="alertMessage = ''">
+                    {{alertMessage}}
+                </ngb-alert>
+
+        </div>
+        </div>
+        <div class="offset-1 row">
+            <div class="col-12">
+                <h3>Description</h3>
+                <p>{{details.overview}}</p>
+            </div>
+        </div>
+        <div class="offset-1 row">
+            <div class="col-12">
+                <h4>Share</h4>
+                
+                <!-- I'll open facebook and twitter's websites, but I'm against them -->
+                <p><a href="http://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/watch?v={{results.key}}" target="_blank"><i style="color: blue; font-size: 1.5rem; margin-right: 10px;" class="fab fa-facebook-square"></i></a> 
+                    <a href="http://www.twitter.com/intent/tweet?text=https://www.youtube.com/watch?v={{results.key}}%20%23USC%20%23CSCI571%20%23FightOn" target="_blank"><i style="color: cyan; font-size: 1.5rem; margin-right: 10px;" class="fab fa-twitter"></i></a></p>
+            </div>
+        </div>
+    
+        <!-- cast and reviews -->
+        <div class="container-fluid">
+        <div *ngIf="cast" class="row flex-row flex-nowrap">
+            <div class="offset-1 cast-set" >
+                <h3>Full Cast and Crew</h3>
+                <div *ngFor="let people of cast" class="cast-card" (click)="openCastProfile(content, people.id)">
+                    <div *ngIf='people.profile_path'>
+                    <img class="card-img-top" [src]='people.profile_path' alt="{{people.name}}">
+                        <div style="color:black;" class="card-body">{{people.name}}<br /> as <br />{{people.character}}
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+            
+            <div class="row" *ngIf="reviews">
+                <div class="offset-1 col-10 offset-1">
+                    <h3>Reviews <span style="color: #666;"></span>{{number_of_reviews}}</h3>
+                    <div *ngFor="let review of reviews" class="card" style="margin-top: 10px; margin-bottom: 10px; color:black">
+                    
+                        <div class="card-body">
+                            <div class="col-4" style="float: left;">
+                                <img [src]='review.avatar_path' />
+                            </div>
+                            <div class="offset-4 col-8">
+                                <h5 class="card-title">A review created by {{review.author}}. <span class="review-special" *ngIf=review.rating> &#9733; {{review.rating}}</span> </h5>
+                                <br />
+                                <h6 class="card-subtitle">Written by {{review.author}} on {{review.created_at}}</h6>
+                                <br />
+                                <p class="overview">{{review.content}}</p>
+                                    <a href="{{review.url}}" target="_blank">Read the rest</a>                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="row"> 
+                <div class="col-12">
+                <app-category-cards category_title="Recommended {{formatMedia}}" media="{{retParams.media}}" id="{{retParams.id}}" type="likeness" rec="recommendations"></app-category-cards>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <p><app-category-cards category_title="Similar {{formatMedia}}" media="{{retParams.media}}" id="{{retParams.id}}" type="likeness" rec="similar"></app-category-cards></p>
+        </div>
+    </div>
+
+    <!-- MODAL -- once again, I have to trade off and I'm not happy but I need to get stuff done -->
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">{{person.name}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-6">
+                    <img [src]='person.profile_path' style="width: 185px">
+                </div>
+                <div class="col-6">
+                    <p class="biographical">Birth: {{person.birthday}}</p>
+                    <p class="biographical">Birth Place: {{person.birthplace}}</p>
+                    <p class="biographical">Gender: {{person.gender}}</p>
+                    <p class="biographical">Known For: {{person.known_for}}</p>
+                    <p class="biographical">Also Known as: {{person.also_known_as}}</p>
+                    <!-- sharing -->
+                    <p>
+                        <a *ngIf='social_media.imdb' href="{{social_media.imdb}}" target = "_blank"><i style="color: orange; font-size: 1.5rem; margin-right: 10px;" class="fab fa-imdb" placement="top" ngbTooltip="Visit IMDB"></i></a> 
+                        <a *ngIf='social_media.instagram' href="{{social_media.instagram}}" target="_blank"><i style="color: purple; font-size: 1.5rem; margin-right: 10px;" class="fab fa-instagram-square" placement="top" ngbTooltip="Visit Instagram"></i></a> 
+                        <a *ngIf='social_media.facebook' href="{{social_media.facebook}}" target="_blank"><i style="color: blue; font-size: 1.5rem; margin-right: 10px;" class="fab fa-facebook-square" placement="top" ngbTooltip="Visit Facebook"></i></a> 
+                        <a *ngIf='social_media.imdb' href="{{social_media.twitter}}" target="_blank"><i style="color: cyan; font-size: 1.5rem; margin-right: 10px;" class="fab fa-twitter" placement="top" ngbTooltip="Visit Twitter"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <h3>Biography</h3>
+                    <p>{{person.biography}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+      <div style="height: 100px;"></div>
+      
+
+<router-outlet></router-outlet>

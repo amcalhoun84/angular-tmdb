@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-darker navbar-dark sticky-top">
+    <a class="navbar-brand">USC Films</a>
+
+    <button class="navbar-toggler" type="button" 
+    data-toggle="collapse" data-target="#navbarContent" 
+    aria-controls="navbarContent" aria-expanded="false" 
+    aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto" >
+          <li class="nav-item active">
+            <a class="nav-link navbar-dark" routerLink="/" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-dark" routerLink="/myList" routerLinkActive="active">My List</a>
+          </li>
+        </ul>    
+      <ng-template #rt let-r="result" let-t="term" style="background-color: black;">
+        <a style="height: 100%; width: 100%; color: black; text-decoration: none;" [routerLink]="['/watch', r.media_type, r.id]" routerLinkActive="active">
+         <img [src]="r.poster_path" class="mr-1" style="width: 150px">
+          <ngb-highlight [result]='r.name' [term]="t"></ngb-highlight></a>
+      
+      </ng-template>
+    <form class="form-inline my-2 my-lg-0">
+            <div class="md-form my-0">
+                <input id="title-search" 
+                class="form-control border-0 bg-darker underline-search" 
+                type="text" 
+                placeholder="Search"
+                [ngbTypeahead]="searchTitle" 
+                [resultTemplate]="rt"
+                [inputFormatter]="formatter"
+                #instance="ngbTypeahead" />
+              
+
+            </div>
+        </form>
+    </div>
+
+</nav>

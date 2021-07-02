@@ -1,0 +1,8 @@
+.fixed-bottom { 
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 150px;
+    min-width: 300px;
+}

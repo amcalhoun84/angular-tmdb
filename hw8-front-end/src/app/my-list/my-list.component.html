@@ -1,0 +1,13 @@
+<div *ngIf='!hasResults'>
+    <h3 class="no-results">No items found in Watchlist</h3>
+</div>
+<div *ngIf='hasResults' class="results offset-1 col-10 offset-1">
+    <h3>My Watchlist</h3> 
+    <div *ngFor="let obj of results" class="cards">
+        <a [routerLink]="['/watch', obj.media, obj.id]" routerLinkActive="active">
+            <div class="title">{{obj.title}}</div>
+            <img class="cards-img" [src]="obj.image" [alt]=obj.title>
+        </a>
+    </div>
+</div>
+<router-outlet></router-outlet>
